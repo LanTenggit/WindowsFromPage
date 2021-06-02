@@ -1,0 +1,12 @@
+            this.dataGridView1.DataSource = null;
+            string sql = string.Format("select ID,T_time,ColiodWeight,weightmin,WeightMax,ClassNum,M_ID,T_line,GluerName from ColiodWeight");
+            DataTable dt = DBdataConfig.getTable(sql);
+            dataGridView1.DataSource = dt;
+            InitDataGridViewHead();
+            //IfColor();
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            page1.pagesizeNum = 20;//每页行数
+            page1.dataGridView = dataGridView1;
+            page1.page_load(dt,dataGridView1);//数据绑定
